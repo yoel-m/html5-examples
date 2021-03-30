@@ -118,7 +118,8 @@
     </script>
 
     <!-- For generating fake names and email addresses. -->
-    <script src="https://raw.github.com/Marak/Faker.js/master/Faker.js"></script>
+    <script src="https://rawgit.com/Marak/faker.js/master/examples/browser/js/faker.js"></script>
+
 
     <script>
         // The actual script for this page.
@@ -204,11 +205,11 @@
 
             contactsDB.readWrite([ contactsStoreName ], function(tx) {
                 for (var i = 0, n = 10; i < n; i++) {
-                    var name = Faker.Name.firstName();
+                    var name = faker.name.firstName();
                     var email = name.toLowerCase() +
                                 Math.round(Math.random() * 1000) +
                                 '@example.' +
-                                Faker.Helpers.randomize(definitions.domain_suffix());
+                               faker.internet.domainSuffix();
 
                     var contact = {
                         name: name,
